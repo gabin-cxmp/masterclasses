@@ -1,11 +1,11 @@
 @font-face {
   font-family: "NueueHaasDisplayMedium";
-  src: url(../shared-assets/fonts/NeueHaasDisplayMedium.ttf);
+  src: url(/shared-assets/fonts/NeueHaasDisplayMedium.ttf);
 }
 
 @font-face {
   font-family: "NeueHassDisplayRoman";
-  src: url(../shared-assets/fonts/NeueHaasDisplayRoman.ttf);
+  src: url(/shared-assets/fonts/NeueHaasDisplayRoman.ttf);
 }
 
 html{
@@ -680,3 +680,4 @@ button:hover, .download-button-small:hover, .download-button:hover {
   }
 
 }
+
