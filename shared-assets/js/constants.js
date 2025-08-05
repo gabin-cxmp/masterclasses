@@ -39,7 +39,7 @@ export const FORMATS = [
     templateEN: '../shared-assets/templates/speaker-whosnext-story-en.png',
     templateFR: '../shared-assets/templates/speaker-whosnext-story-fr.png',
     dimensions: [1080, 1920],
-    profilePictureCenteredPos: [540, 466],
+    profilePictureCenteredPos: [540, 467],
     profilePictureSize: [316, 316],
     namePos: [540, 704],
     datePos: [540, 848],
@@ -67,7 +67,7 @@ export const FORMATS = [
     tradeshow: "Bijorhca",
     templateFR: '../shared-assets/templates/speaker-bijorhca-story-fr.png',
     dimensions: [1080, 1920],
-    profilePictureCenteredPos: [540, 466],
+    profilePictureCenteredPos: [540, 467],
     profilePictureSize: [316, 316],
     namePos: [540, 704],
     datePos: [540, 848],
@@ -110,3 +110,4 @@ export const masterclassesBijorhca = [
   { name: 'Comment peut-on capturer l’aura d’un bijou ou d’un être à travers l’image ?', time: 'lundi 8 septembre : 14h00 - 15h00'},
   { name: 'Le bijou d’émotion, objet intime dans une société pudique…', time: 'lundi 8 septembre : 15h00 - 16h00'}
 ];
+
