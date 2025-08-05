@@ -73,6 +73,8 @@ dom.submitButton.addEventListener('click', async () => {
   dom.imagesContainer.innerHTML = '';
   dom.generatedImagesSection.style.display = 'block';
 
+  document.getElementById('image-loader').style.display = 'flex';
+
   // 🔍 Filtrer les bons formats à générer
   const formatsToUse = FORMATS.filter(f => {
     return isWhosNext
@@ -96,6 +98,14 @@ dom.submitButton.addEventListener('click', async () => {
     const downloadBtn = createDownloadButton(imageDataUrl, filename);
     dom.imagesContainer.appendChild(downloadBtn);
   }
+
+  document.getElementById('image-loader').style.display = 'none';
+
+  dom.imagesContainer.scrollIntoView({
+    behavior: 'smooth',
+    block: 'start' // aligne le haut du container avec le haut de la page
+  });
+
 });
 
 // 4. Injection des masterclass
