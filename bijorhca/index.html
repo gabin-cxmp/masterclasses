@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My masterclass powered by WSN</title>
+  <link rel="icon" sizes="16x16" href="../shared-assets/favicon/16x16.png" type="image/png">
+  <link rel="icon" sizes="32x32" href="../shared-assets/favicon/32x32.png" type="image/png">
+  <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@100..700&family=Arimo:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/cropperjs/dist/cropper.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/cropperjs/dist/cropper.min.js"></script>
+  <script src="../shared-assets/js/croppie.min.js"></script>
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="../shared-assets/croppie.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@100..700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav>
+    <div class="nav-wrapper">
+      <a class="title-wrapper" href="https://whosnext.com/">
+        <img src="../shared-assets/logos/logo-wsn.svg" class="wsn-logo"/>
+      </a>
+    </div>
+  </nav>
+  <div class="container">
+    <div class="section">
+      <h1>Boostez la visibilité de votre masterclass !</h1>
+      <p class="label-description">Créez un visuel pour votre masterclass</p>
+    </div>
+    <div class="tab-container">
+      <div class="tab-content">
+        <div id="customized-pictures">
+          <div class="container-border">
+            <div class="section form-and-preview_container">
+              <div class="form_wrapper">
+                <!-- Stand Number Input -->
+                <div class="input-group">
+                  <label for="credentials">Personnalisez votre visuel</label>
+                  <p class="label-description">Renseignez vos informations pour personnaliser votre visuel.</p>
+                  <div class="inputs_wrapper">
+                    <div class="input-grid_wrapper">
+                      <div class="input_wrapper">
+                        <p>Prénom : </p>
+                        <input type="text" id="firstname" placeholder="Celia">
+                      </div>
+                      <div class="input_wrapper">
+                        <p>Nom : </p>
+                        <input type="text" id="lastname" placeholder="Simon">
+                      </div>
+                      <div class="input_wrapper" id="masterclassInputWrapper">
+                        <p>Masterclass : </p>
+                        <select id="masterclass-select">
+                          <button>
+                            <selectedcontent></selectedcontent>
+                            <option value="">Sélectionnez votre masterclass</option>
+                          </button>
+                        </select>
+                      </div>
+                  </div>
+                  </div>
+                </div>
+      
+                <!-- Profil picture Upload -->
+                <div class="input-group">
+                  <label for="logoUpload">Ajoutez votre photo</label>
+                  <p class="label-description">Importez votre photo, ajustez-la, puis cliquez sur “Générer mes visuels”.</p>
+                  <div class="input_wrapper">
+                    <div class="image-input-container">
+                      <input type="file" id="logoUpload" accept="image/*">
+                      <label for="logoUpload" class="custom-file-button">+</label>
+                      <span class="file-name">(Aucun fichier choisi)</span>
+                    </div>
+                  </div>
+                  <div id="croppie-wrapper"></div>
+                </div>
+      
+                <!-- Submit Button -->
+                <button id="submitButton" data-button-id="create-customized-banners">Générer mes visuels</button>
+              </div>
+              <!-- Preview Section -->
+              <div class="preview">
+                <h2>Aperçu :</h2>
+                <div class="preview-design"></div>
+              </div>
+            </div>
+          </div>
+          <!-- Generated Images Section -->
+          <div class="section generated-images" style="display: none;">
+            <h2>Télécharger mes visuels</h2>
+            <ul class="images-container">
+              <!-- Placeholder for generated images -->
+            </ul>
+            <button id="downloadAllButton" class="download-button" data-button-id="customized-download-all">Download All</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="croppieOverlay" class="overlay hidden">
+    <div class="croppie-modal">
+      <div id="croppie-wrapper-popup"></div>
+      <button id="validateCropBtn">Appliquer</button>
+    </div>
+  </div>
+  <script type="module" src="../shared-assets/js/main.js"></script>
+</body>
+</html>
