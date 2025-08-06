@@ -44,7 +44,7 @@ export const FORMATS = [
     namePos: [540, 704],
     datePos: [540, 848],
     masterclassTitlePos: [540, 815],
-    fontName: '100 33px Antonio',
+    fontName: '100 44px Antonio',
     fontDate: '24px NeueHassDisplayRoman',
     fontTitle: '32px NeueHassDisplayRoman'
   },
@@ -72,7 +72,7 @@ export const FORMATS = [
     namePos: [540, 704],
     datePos: [540, 848],
     masterclassTitlePos: [540, 815],
-    fontName: '100 33px Antonio',
+    fontName: '100 44px Antonio',
     fontDate: '24px NeueHassDisplayRoman',
     fontTitle: '32px NeueHassDisplayRoman'
   },
@@ -110,4 +110,5 @@ export const masterclassesBijorhca = [
   { name: 'Comment peut-on capturer l’aura d’un bijou ou d’un être à travers l’image ?', time: 'lundi 8 septembre : 14h00 - 15h00'},
   { name: 'Le bijou d’émotion, objet intime dans une société pudique…', time: 'lundi 8 septembre : 15h00 - 16h00'}
 ];
+
 
