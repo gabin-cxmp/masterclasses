@@ -94,7 +94,7 @@ dom.submitButton.addEventListener('click', async () => {
     imgEl.src = imageDataUrl;
     dom.imagesContainer.appendChild(imgEl);
 
-    const filename = lang === 'en' ? `My ${format.tradeshow} masterclass ${format.format} format.png` : `Ma masterclass ${format.tradeshow} format ${format.format}.png`;
+    const filename = lang === 'en' ? `My ${format.tradeshow} Talk ${format.format} format.png` : `Mon Talk ${format.tradeshow} format ${format.format}.png`;
     const downloadBtn = createDownloadButton(imageDataUrl, filename);
     dom.imagesContainer.appendChild(downloadBtn);
   }
@@ -135,3 +135,4 @@ document.addEventListener('DOMContentLoaded', () => {
     previewDesign.style.backgroundImage = "url('../shared-assets/previews/PREVIEW-SPEAKERS-VF-BIJORHCA.jpg')";
   }
 })
+
