@@ -12,136 +12,76 @@ let croppieInstance = null;
 let croppedResult = null;
 const lang = document.documentElement.lang;
 
-// Fonction utilitaire pour redimensionner l'image avant Croppie
-function resizeImageBeforeCrop(file, maxWidth = 800, quality = 0.8) {
-  return new Promise((resolve) => {
-    const canvas = document.createElement('canvas');
-    const ctx = canvas.getContext('2d');
-    const img = new Image();
-    
-    img.onload = function() {
-      // Calculer les nouvelles dimensions en gardant le ratio
-      let { width, height } = img;
-      if (width > maxWidth) {
-        height = (height * maxWidth) / width;
-        width = maxWidth;
-      }
-      
-      canvas.width = width;
-      canvas.height = height;
-      
-      // Dessiner l'image redimensionnée
-      ctx.drawImage(img, 0, 0, width, height);
-      
-      // Retourner le dataURL avec compression
-      resolve(canvas.toDataURL('image/jpeg', quality));
-    };
-    
-    img.src = URL.createObjectURL(file);
-  });
-}
-
-// Fonction pour détruire proprement l'instance Croppie
-function destroyCroppieInstance() {
-  if (croppieInstance) {
-    try {
-      croppieInstance.destroy();
-    } catch (e) {
-      console.warn('Erreur lors de la destruction de Croppie:', e);
-    }
-    croppieInstance = null;
-  }
-}
-
-// 1. Upload image + ouverture croppie (OPTIMISÉ)
+// 1. Upload image + ouverture croppie (VERSION AMÉLIORÉE POUR CHROME MAC)
 dom.profilePictureUpload.addEventListener('change', async () => {
   const file = dom.profilePictureUpload.files[0];
   if (!file) return;
 
-  // Vérifier la taille du fichier (limiter à 5MB)
-  if (file.size > 5 * 1024 * 1024) {
-    alert(lang === 'en' ? 'File too large. Please choose an image under 5MB.' : 'Fichier trop volumineux. Veuillez choisir une image de moins de 5MB.');
-    return;
-  }
-
   dom.fileNameDisplay.textContent = file.name;
 
-  // Afficher le loader pendant le traitement
+  // Afficher le loader existant pendant le traitement
   document.getElementById('image-loader').style.display = 'flex';
 
-  // Détruire l'ancienne instance si elle existe
-  destroyCroppieInstance();
-
-  try {
-    // Redimensionner l'image AVANT de l'envoyer à Croppie
-    const resizedImageUrl = await resizeImageBeforeCrop(file);
-    
-    const overlay = document.getElementById('croppieOverlay');
-    const croppieContainer = document.getElementById('croppie-wrapper-popup');
-    croppieContainer.innerHTML = '';
-
-    // Configuration optimisée de Croppie
-    croppieInstance = new Croppie(croppieContainer, {
-      viewport: { width: 250, height: 250, type: 'circle' },
-      boundary: { width: 300, height: 300 },
-      // Options de performance
-      enableExif: false, // Désactive la lecture EXIF (plus rapide)
-      enableOrientation: false, // Désactive l'orientation automatique
-      enableZoom: true,
-      enableResize: false, // Désactive le redimensionnement du viewport
-      mouseWheelZoom: 'ctrl', // Zoom uniquement avec Ctrl+molette
-    });
-
-    // Bind avec un délai pour laisser le DOM se mettre à jour
-    requestAnimationFrame(() => {
-      croppieInstance.bind({ 
-        url: resizedImageUrl,
-        // Zoom initial optimisé
-        zoom: 0
-      });
+  // Utiliser setTimeout pour laisser le navigateur afficher le loader
+  setTimeout(async () => {
+    try {
+      const reader = new FileReader();
       
-      // Masquer le loader et afficher l'overlay
+      // Promettre la lecture du fichier
+      const imageDataUrl = await new Promise((resolve, reject) => {
+        reader.onload = (e) => resolve(e.target.result);
+        reader.onerror = reject;
+        reader.readAsDataURL(file);
+      });
+
+      // Petite pause pour Chrome Mac (problème de threading)
+      await new Promise(resolve => setTimeout(resolve, 50));
+
+      const overlay = document.getElementById('croppieOverlay');
+      const croppieContainer = document.getElementById('croppie-wrapper-popup');
+      croppieContainer.innerHTML = '';
+
+      // Initialisation Croppie standard (ne pas toucher au zoom)
+      croppieInstance = new Croppie(croppieContainer, {
+        viewport: { width: 250, height: 250, type: 'circle' },
+        boundary: { width: 300, height: 300 },
+        enableResize: false, // Pas de redimensionnement du cercle
+      });
+
+      // Liaison image standard
+      croppieInstance.bind({ url: imageDataUrl });
+
+      // Masquer le loader et afficher la modal
       document.getElementById('image-loader').style.display = 'none';
       overlay.classList.remove('hidden');
-    });
 
-  } catch (error) {
-    console.error('Erreur lors du traitement de l\'image:', error);
-    document.getElementById('image-loader').style.display = 'none';
-    alert(lang === 'en' ? 'Error processing image. Please try another file.' : 'Erreur lors du traitement de l\'image. Veuillez essayer un autre fichier.');
-  }
+    } catch (error) {
+      console.error('Erreur lors du chargement:', error);
+      document.getElementById('image-loader').style.display = 'none';
+      alert(lang === 'en' ? 
+        'An error occurred while loading the image. Please try again.' : 
+        'Une erreur est survenue lors du chargement de l\'image. Veuillez réessayer.'
+      );
+    }
+  }, 100); // Délai pour laisser le loader s'afficher
 });
 
-// 2. Validation croppie (OPTIMISÉ)
+// 2. Validation croppie (inchangé)
 dom.validateCropBtn.addEventListener('click', async () => {
   const overlay = document.getElementById('croppieOverlay');
 
   if (!croppieInstance) return;
 
-  try {
-    // Utiliser des paramètres optimisés pour le résultat
-    croppedResult = await croppieInstance.result({
-      type: 'base64',
-      size: { width: 500, height: 500 },
-      format: 'png',
-      quality: 0.9, // Compression légère
-      circle: true // GARDER le masque circulaire
-    });
+  croppedResult = await croppieInstance.result({
+    type: 'base64',
+    size: { width: 500, height: 500 },
+    format: 'png',
+  });
 
-    overlay.classList.add('hidden');
-    
-    // Détruire l'instance après utilisation pour libérer la mémoire
-    setTimeout(() => {
-      destroyCroppieInstance();
-    }, 100);
-    
-  } catch (error) {
-    console.error('Erreur lors du crop:', error);
-    alert(lang === 'en' ? 'Error cropping image. Please try again.' : 'Erreur lors du recadrage. Veuillez réessayer.');
-  }
+  overlay.classList.add('hidden');
 });
 
-// 3. Génération images formats multiples (avec gestion d'erreur améliorée)
+// 3. Génération images formats multiples (inchangé)
 dom.submitButton.addEventListener('click', async () => {
   const lang = document.documentElement.lang;
   const isWhosNext = window.location.href.includes('whos-next');
@@ -162,6 +102,7 @@ dom.submitButton.addEventListener('click', async () => {
 
   dom.imagesContainer.innerHTML = '';
   dom.generatedImagesSection.style.display = 'block';
+
   document.getElementById('image-loader').style.display = 'flex';
 
   // 🔍 Filtrer les bons formats à générer
@@ -171,57 +112,29 @@ dom.submitButton.addEventListener('click', async () => {
       : f.tradeshow === 'Bijorhca';
   });
 
-  try {
-    // Traitement séquentiel avec un petit délai pour éviter le blocage
-    for (let i = 0; i < formatsToUse.length; i++) {
-      const format = formatsToUse[i];
-      const template = lang === 'en' ? format.templateEN || format.templateFR : format.templateFR;
+  for (const format of formatsToUse) {
+    const template =
+      lang === 'en' ? format.templateEN || format.templateFR : format.templateFR;
 
-      if (!template) continue;
+    if (!template) continue; // skip if template doesn't exist
 
-      // Petite pause entre chaque génération pour éviter le blocage UI
-      if (i > 0) {
-        await new Promise(resolve => setTimeout(resolve, 50));
-      }
+    const imageDataUrl = await generateImage(format, template, croppedResult, infos);
 
-      const imageDataUrl = await generateImage(format, template, croppedResult, infos);
+    const imgEl = document.createElement('img');
+    imgEl.src = imageDataUrl;
+    dom.imagesContainer.appendChild(imgEl);
 
-      const imgEl = document.createElement('img');
-      imgEl.src = imageDataUrl;
-      imgEl.loading = 'lazy'; // Lazy loading pour les performances
-      dom.imagesContainer.appendChild(imgEl);
-
-      const filename = lang === 'en' 
-        ? `My ${format.tradeshow} Talk ${format.format} format.png` 
-        : `Mon Talk ${format.tradeshow} format ${format.format}.png`;
-      const downloadBtn = createDownloadButton(imageDataUrl, filename);
-      dom.imagesContainer.appendChild(downloadBtn);
-    }
-  } catch (error) {
-    console.error('Erreur lors de la génération:', error);
-    alert(lang === 'en' ? 'Error generating images. Please try again.' : 'Erreur lors de la génération. Veuillez réessayer.');
-  } finally {
-    document.getElementById('image-loader').style.display = 'none';
+    const filename = lang === 'en' ? `My ${format.tradeshow} Talk ${format.format} format.png` : `Mon Talk ${format.tradeshow} format ${format.format}.png`;
+    const downloadBtn = createDownloadButton(imageDataUrl, filename);
+    dom.imagesContainer.appendChild(downloadBtn);
   }
+
+  document.getElementById('image-loader').style.display = 'none';
 
   dom.imagesContainer.scrollIntoView({
     behavior: 'smooth',
     block: 'start'
   });
-});
-
-// Nettoyage automatique quand on quitte la page
-window.addEventListener('beforeunload', () => {
-  destroyCroppieInstance();
-});
-
-// Event listener pour fermer le modal (si bouton de fermeture)
-document.addEventListener('click', (e) => {
-  if (e.target.closest('#croppieOverlay') && !e.target.closest('#croppie-wrapper-popup')) {
-    const overlay = document.getElementById('croppieOverlay');
-    overlay.classList.add('hidden');
-    destroyCroppieInstance();
-  }
 });
 
 // 4. Injection des masterclass (inchangé)
@@ -241,7 +154,7 @@ document.addEventListener('DOMContentLoaded', () => {
 document.addEventListener('DOMContentLoaded', () => {
   const previewDesign = document.querySelector('.preview-design');
 
-  if (window.location.href.includes('whos-next') && lang === 'en'){
+  if (window.location.href.includes('whos-next') && lang === 'en') {
     previewDesign.style.backgroundImage = "url('../shared-assets/previews/PREVIEW-SPEAKERS-EN-WHOSNEXT.jpg')";
   } else if (window.location.href.includes('whos-next') && lang === 'fr') {
     previewDesign.style.backgroundImage = "url('../shared-assets/previews/PREVIEW-SPEAKERS-FR-WHOSNEXT.jpg')";
