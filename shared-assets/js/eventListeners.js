@@ -12,6 +12,12 @@ let croppieInstance = null;
 let croppedResult = null;
 const lang = document.documentElement.lang;
 
+// Detect Chrome on Mac for specific optimizations
+const isChromeMac = () => {
+  const userAgent = navigator.userAgent;
+  return userAgent.includes('Chrome') && userAgent.includes('Mac');
+};
+
 // 1. Upload image + ouverture croppie (VERSION AMÉLIORÉE POUR CHROME MAC)
 dom.profilePictureUpload.addEventListener('change', async () => {
   const file = dom.profilePictureUpload.files[0];
@@ -25,21 +31,27 @@ dom.profilePictureUpload.addEventListener('change', async () => {
   // Utiliser setTimeout pour laisser le navigateur afficher le loader
   setTimeout(async () => {
     try {
-      const reader = new FileReader();
-      
-      // Promettre la lecture du fichier
-      const imageDataUrl = await new Promise((resolve, reject) => {
-        reader.onload = (e) => resolve(e.target.result);
-        reader.onerror = reject;
-        reader.readAsDataURL(file);
-      });
+      // Check file size first (performance optimization)
+      const maxSize = 10 * 1024 * 1024; // 10MB limit
+      if (file.size > maxSize) {
+        throw new Error('File too large. Please choose an image smaller than 10MB.');
+      }
 
-      // Petite pause pour Chrome Mac (problème de threading)
-      await new Promise(resolve => setTimeout(resolve, 50));
-
+      // Prepare DOM elements early (performance optimization)
       const overlay = document.getElementById('croppieOverlay');
       const croppieContainer = document.getElementById('croppie-wrapper-popup');
       croppieContainer.innerHTML = '';
+
+      // Step 1: Image compression optimization
+      const compressedImageDataUrl = await compressImage(file);
+
+      // Use compressed image directly instead of FileReader
+      const imageDataUrl = compressedImageDataUrl;
+
+      // Petite pause pour Chrome Mac (problème de threading) - optimisée
+      if (isChromeMac()) {
+        await new Promise(resolve => setTimeout(resolve, 25)); // Réduit de 50ms à 25ms
+      }
 
       // Initialisation Croppie standard (ne pas toucher au zoom)
       croppieInstance = new Croppie(croppieContainer, {
@@ -47,6 +59,13 @@ dom.profilePictureUpload.addEventListener('change', async () => {
         boundary: { width: 300, height: 300 },
         enableResize: false, // Pas de redimensionnement du cercle
       });
+      
+      // Add Chrome Mac specific optimization
+      if (isChromeMac()) {
+        croppieInstance.options.enableExif = false; // Disable EXIF reading which can cause delays
+        croppieInstance.options.mouseWheelZoom = false; // Disable mouse wheel zoom which can be slow on Chrome Mac
+        croppieInstance.options.enableOrientation = false; // Disable orientation detection for better performance
+      }
 
       // Liaison image standard
       croppieInstance.bind({ url: imageDataUrl });
@@ -162,3 +181,39 @@ document.addEventListener('DOMContentLoaded', () => {
     previewDesign.style.backgroundImage = "url('../shared-assets/previews/PREVIEW-SPEAKERS-VF-BIJORHCA.jpg')";
   }
 });
+
+// Image compression function for performance optimization
+function compressImage(file) {
+  return new Promise((resolve) => {
+    const canvas = document.createElement('canvas');
+    const ctx = canvas.getContext('2d');
+    const img = new Image();
+    
+    img.onload = () => {
+      // Calculate optimal dimensions (max 1920px width/height)
+      const maxSize = 1920;
+      let { width, height } = img;
+      
+      if (width > maxSize || height > maxSize) {
+        if (width > height) {
+          height = (height * maxSize) / width;
+          width = maxSize;
+        } else {
+          width = (width * maxSize) / height;
+          height = maxSize;
+        }
+      }
+      
+      canvas.width = width;
+      canvas.height = height;
+      
+      // Draw and compress
+      ctx.drawImage(img, 0, 0, width, height);
+      const compressedDataUrl = canvas.toDataURL('image/jpeg', 0.8); // 80% quality
+      
+      resolve(compressedDataUrl);
+    };
+    
+    img.src = URL.createObjectURL(file);
+  });
+}
