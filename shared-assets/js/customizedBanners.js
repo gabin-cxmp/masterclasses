@@ -63,7 +63,7 @@ export const generateImage = async (format, templatePath, croppedImageBase64, in
 
   // Réduction progressive si le titre est trop long
   if (titleText.length > 70) {
-    titleFontSize -= 0.5;
+    titleFontSize -= 1;
   }
 
   ctx.font = `${titleFontSize}px ${fontName}`;
@@ -71,3 +71,4 @@ export const generateImage = async (format, templatePath, croppedImageBase64, in
 
   return canvas.toDataURL('image/png');
 };
+
