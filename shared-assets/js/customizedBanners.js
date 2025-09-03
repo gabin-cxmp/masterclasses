@@ -1,5 +1,3 @@
-// customizedBanners.js
-
 import { dom } from './constants.js';
 import { FORMATS } from './constants.js';
 import { createElement } from './utils.js';
@@ -15,12 +13,12 @@ export const generateImage = async (format, templatePath, croppedImageBase64, in
   // S'assurer que les polices sont prêtes
   await document.fonts.ready;
 
-  // Charger les polices personnalisées utilisées (si besoin)
+  // Charger les polices personnalisées utilisées
   if (format.fontDate) {
-    await document.fonts.load(format.fontDate); // exemple: '30px NeueHassDisplayRoman'
+    await document.fonts.load(format.fontDate); 
   }
   if (format.fontTitle) {
-    await document.fonts.load(format.fontTitle); // exemple: '32px NeueHassDisplayRoman'
+    await document.fonts.load(format.fontTitle); 
   }
 
   // Charger le fond
@@ -47,18 +45,29 @@ export const generateImage = async (format, templatePath, croppedImageBase64, in
   ctx.fillStyle = '#000';
   ctx.textAlign = 'center';
 
-  // Nom complet (font système ou déjà chargée)
+  // Nom complet
   ctx.font = format.fontName;
   ctx.fillText(`${infos.firstname.toUpperCase()} ${infos.lastname.toUpperCase()}`, format.namePos[0], format.namePos[1]);
 
-  // Date (avec font custom)
+  // Date
   ctx.font = format.fontDate;
   ctx.fillText(infos.masterclassDate, format.datePos[0], format.datePos[1]);
 
-  // Titre masterclass (avec font custom)
-  ctx.font = format.fontTitle;
-  ctx.fillText(`${infos.masterclassTitle}`, format.masterclassTitlePos[0], format.masterclassTitlePos[1]);
+  // Titre masterclass
+  let titleText = infos.masterclassTitle;
+  
+  // Extraire la taille initiale de font
+  let fontParts = format.fontTitle.split(' ');
+  let titleFontSize = parseInt(fontParts[0]); // ex: '32px' -> 32
+  let fontName = fontParts.slice(1).join(' ');
+
+  // Réduction progressive si le titre est trop long
+  if (titleText.length > 70) {
+    titleFontSize -= 0.5;
+  }
+
+  ctx.font = `${titleFontSize}px ${fontName}`;
+  ctx.fillText(titleText, format.masterclassTitlePos[0], format.masterclassTitlePos[1]);
 
   return canvas.toDataURL('image/png');
 };
-
