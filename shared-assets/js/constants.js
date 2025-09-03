@@ -79,7 +79,7 @@ export const FORMATS = [
 ];
 
 export const masterclassesWhosNextFR = [
-  { name: 'Économie circulaire et innovation : repenser la production textile', time: 'samedi 6 septembre : 13h00 - 14h00'},
+  { name: 'Économie circulaire et innovation : repenser la production textile', time: 'samedi 6 septembre : 15h00 - 16h00'},
   { name: 'Le savoir-faire Européen, un atout local de processus engagé', time: 'samedi 6 septembre : 14h00 - 15h00'},
   { name: 'Mode & Océans : une industrie face à son impact', time: 'samedi 6 septembre : 15h00 - 16h00'},
   { name: 'Innovation textiles', time: 'samedi 6 septembre : 16h00 - 17h00'},
@@ -94,12 +94,13 @@ export const masterclassesWhosNextFR = [
   { name: 'Podcast La Seconde Vintage', time: 'lundi 8 septembre : 13h00 - 14h00'},
   { name: 'Comment peut-on capturer l’aura d’un bijou ou d’un être à travers l’image ?', time: 'lundi 8 septembre : 14h00 - 15h00'},
   { name: 'Comprendre les procédés de valorisation des déchets textiles', time: 'lundi 8 septembre : 14h00 - 15h00'},
-  { name: 'Tisser des liens entre mode et préservation des océans', time: 'lundi 8 septembre : 15h00 - 16h00'},
+  { name: 'Tisser des liens entre mode et préservation des océans', time: 'lundi 8 septembre : 14h00 - 15h00'},
 
 ];
 
 export const masterclassesWhosNextEN = [
-  { name: 'Microplastics, Fashion, and the fight for clean water', time: 'Sunday 7 September: 1:00 pm - 2:00 pm'}
+  { name: 'Microplastics, Fashion, and the fight for clean water', time: 'Sunday 7 September: 1:00 pm - 2:00 pm'},
+  { name: 'Waves of change: inspiring the responsibility to reduce plastic waste by Dopper', time: 'Sunday 7 September: 12:00 pm - 1:00 pm'}
 ]
 
 export const masterclassesBijorhca = [
@@ -110,5 +111,6 @@ export const masterclassesBijorhca = [
   { name: 'Comment peut-on capturer l’aura d’un bijou ou d’un être à travers l’image ?', time: 'lundi 8 septembre : 14h00 - 15h00'},
   { name: 'Le bijou d’émotion, objet intime dans une société pudique…', time: 'lundi 8 septembre : 15h00 - 16h00'}
 ];
+
 
 
