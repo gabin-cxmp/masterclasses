@@ -28,7 +28,7 @@ export const FORMATS = [
   {
     name: 'Post Bleu',
     format: 'square',
-    template: '../shared-assets/templates/speaker-kit-blue-square.png',
+    template: 'shared-assets/templates/speaker-kit-blue-square.png',
     dimensions: [1080, 1080],
     profilePictureSize: [440, 440],
     profilePicturePos: [302, 702],
@@ -46,7 +46,7 @@ export const FORMATS = [
   {
     name: 'Post Jaune',
     format: 'square',
-    template: '../shared-assets/templates/speaker-kit-yellow-square.png',
+    template: 'shared-assets/templates/speaker-kit-yellow-square.png',
     dimensions: [1080, 1080],
     profilePictureSize: [440, 440],
     profilePicturePos: [302, 702],
@@ -64,7 +64,7 @@ export const FORMATS = [
   {
     name: 'Post Jaune',
     format: 'square',
-    template: '../shared-assets/templates/speaker-kit-pink-square.png',
+    template: 'shared-assets/templates/speaker-kit-pink-square.png',
     dimensions: [1080, 1080],
     profilePictureSize: [440, 440],
     profilePicturePos: [302, 702],
@@ -82,7 +82,7 @@ export const FORMATS = [
   {
     name: 'Story Bleue',
     format: 'story',
-    template: '../shared-assets/templates/speaker-kit-blue-story.png',
+    template: 'shared-assets/templates/speaker-kit-blue-story.png',
     dimensions: [1080, 1920],
     profilePictureSize: [440, 440],
     profilePicturePos: [302, 1029],
@@ -100,7 +100,7 @@ export const FORMATS = [
   {
     name: 'Story Jaune',
     format: 'story',
-    template: '../shared-assets/templates/speaker-kit-yellow-story.png',
+    template: 'shared-assets/templates/speaker-kit-yellow-story.png',
     dimensions: [1080, 1920],
     profilePictureSize: [440, 440],
     profilePicturePos: [302, 1029],
@@ -118,7 +118,7 @@ export const FORMATS = [
   {
     name: 'Story Rose',
     format: 'story',
-    template: '../shared-assets/templates/speaker-kit-pink-story.png',
+    template: 'shared-assets/templates/speaker-kit-pink-story.png',
     dimensions: [1080, 1920],
     profilePictureSize: [440, 440],
     profilePicturePos: [302, 1029],
@@ -198,3 +198,4 @@ export const MASTERCLASSES = {
     "SOURCING & SOLUTIONS — 7.2": masterclassesIFL
   }
 };
+
