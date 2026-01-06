@@ -139,7 +139,7 @@ export const masterclassesWhosNextImpact = [
   { name: "C'était mieux avant? Enquête sur nos vêtements au fil du temps", time: 'Samedi 17 janvier : 13h - 14h'},
   //{ name: "-", time: 'Samedi 17 janvier : 15h - 16h'},
   { name: "Et si le passé était un véritable atout stratégique pour la mode de demain ? Dépoussiérer les archives & remettre l’humain au cœur de la mode avec Griffé Studio.", time: 'Dimanche 18 janvier : 14h - 15h'},
-  //{ name: "-", time: 'Dimanche 18 Janvier : 15h - 16h'},
+  { name: "Navigating Textile Sustainability: GOTS Insights and Updates", time: 'Dimanche 18 Janvier : 11h - 12h'},
   { name: "Entre éthique et durabilité: pourquoi et comment les marques de mode s’engagent en faveur du bien-être animal", time: 'Lundi 19 janvier : 11h - 12h'},
   { name: "Et si la durabilité passait par la proximité?", time: 'Lundi 19 janvier : 13h - 14h'},
   { name: "La mode circulaire est-elle condamnée à être une niche de conviction face à l'essor de la fast fashion?", time: 'Lundi 19 janvier : 14h30 - 15h30'}
@@ -198,4 +198,5 @@ export const MASTERCLASSES = {
     "SOURCING & SOLUTIONS — 7.2": masterclassesIFL
   }
 };
+
 
