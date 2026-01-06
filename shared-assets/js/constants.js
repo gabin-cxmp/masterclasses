@@ -147,7 +147,7 @@ export const masterclassesWhosNextImpact = [
 
 export const masterclassesWhosNextAcademy = [
   { name: "Génération Entrepreneurs 2026 : le parcours indispensable pour créer sa marque de mode & d’accessoires", time: 'Samedi 17 janvier : 11h - 11h30'},
-  //{ name: "-", time: 'Samedi 17 janvier : 14h - 14h30'},
+  { name: "Le sens du développement : ce que j’aurais aimé savoir avant d’ouvrir ma deuxième boutique", time: 'Samedi 17 janvier : 14h - 14h30'},
   { name: "Lutter efficacement contre la contrefaçon dans la mode", time: 'Samedi 17 janvier : 16h - 16h30'},
   { name: "Imaginez, générez, vendez : l’IA au service des visuels e-commerce", time: 'Dimanche 18 janvier : 11h - 11h30'},
   { name: "Les outils digitaux qui boostent le business des boutiques", time: 'Dimanche 18 janvier : 14h - 14h30'},
@@ -198,5 +198,6 @@ export const MASTERCLASSES = {
     "SOURCING & SOLUTIONS — 7.2": masterclassesIFL
   }
 };
+
 
 
