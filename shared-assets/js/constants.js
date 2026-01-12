@@ -142,7 +142,7 @@ export const masterclassesWhosNextImpact = [
   { name: "Navigating the Sustainable Textile Landscape: Global Standard Insights and GOTS Updates", time: 'Dimanche 18 Janvier : 11h - 12h'},
   { name: "Entre éthique et durabilité: pourquoi et comment les marques de mode s’engagent en faveur du bien-être animal", time: 'Lundi 19 janvier : 11h - 12h'},
   { name: "Et si la durabilité passait par la proximité?", time: 'Lundi 19 janvier : 13h - 14h'},
-  { name: "La mode circulaire est-elle condamnée à être une niche de conviction face à l'essor de la fast fashion?", time: 'Lundi 19 janvier : 14h30 - 15h30'}
+  { name: "La mode circulaire: entre prise de conscience et passage à l'acte, où en est-t-on vraiment?", time: 'Lundi 19 janvier : 14h30 - 15h30'}
 ];
 
 export const masterclassesWhosNextAcademy = [
@@ -198,6 +198,7 @@ export const MASTERCLASSES = {
     "SOURCING & SOLUTIONS — 7.2": masterclassesIFL
   }
 };
+
 
 
 
