@@ -137,7 +137,7 @@ export const FORMATS = [
 
 export const masterclassesWhosNextImpact = [
   { name: "C'était mieux avant? Enquête sur nos vêtements au fil du temps", time: 'Samedi 17 janvier : 13h - 14h'},
-  //{ name: "-", time: 'Samedi 17 janvier : 15h - 16h'},
+  { name: "Next-Gen Materials in Practice: Lessons from Biofluff and the New Materials Wave", time: 'Samedi 17 janvier : 15h - 16h'},
   { name: "Et si le passé était un véritable atout stratégique pour la mode de demain ? Dépoussiérer les archives & remettre l’humain au cœur de la mode avec Griffé Studio.", time: 'Dimanche 18 janvier : 14h - 15h'},
   { name: "Navigating the Sustainable Textile Landscape: Global Standard Insights and GOTS Updates", time: 'Dimanche 18 Janvier : 11h - 12h'},
   { name: "Entre éthique et durabilité: pourquoi et comment les marques de mode s’engagent en faveur du bien-être animal", time: 'Lundi 19 janvier : 11h - 12h'},
@@ -198,6 +198,7 @@ export const MASTERCLASSES = {
     "SOURCING & SOLUTIONS — 7.2": masterclassesIFL
   }
 };
+
 
 
 
