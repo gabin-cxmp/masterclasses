@@ -25,7 +25,7 @@ export const FORMATS = [
   {
     name: 'Post',
     format: 'square',
-    template: '../shared-assets/templates/speaker-kit-square.png',
+    template: 'shared-assets/templates/speaker-kit-square.png',
     dimensions: [1080, 1080],
     profilePictureSize: [440, 440],
     profilePicturePos: [302, 702],
@@ -43,7 +43,7 @@ export const FORMATS = [
   {
     name: 'Story',
     format: 'story',
-    template: '../shared-assets/templates/speaker-kit-story.png',
+    template: 'shared-assets/templates/speaker-kit-story.png',
     dimensions: [1080, 1920],
     profilePictureSize: [440, 440],
     profilePicturePos: [291, 1094],
@@ -84,3 +84,4 @@ export const MASTERCLASSES = {
     "LE WORKSHOP": masterclassesLeWorkshop
   }
 };
+
