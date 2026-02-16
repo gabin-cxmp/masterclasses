@@ -52,37 +52,77 @@ export const generateImage = async (format, templatePath, croppedImageBase64, in
 
   // Calculate masterclass position dynamically
   ctx.font = format.fontMasterclass;
-  const masterclassText = infos.masterclassTitle.toUpperCase() + '\n' + infos.masterclassDate.toUpperCase() + (infos.masterclassDate2 ? '\n' + infos.masterclassDate2.toUpperCase() : '');
   const masterclassX = format.masterclassTitleX;
   const lineHeight = parseInt(format.fontMasterclass.split(' ')[0]);
-
-  // Calculate total lines for masterclass text
-  const masterclassLines = masterclassText.split('\n');
-  let totalMasterclassLines = 0;
   const maxWidth = format.maxMasterclassWidth;
 
-  for (const line of masterclassLines) {
-    const words = line.split(' ');
-    let currentWidth = 0;
-    let lineCount = 1;
+  // Calculate total lines for masterclass title
+  const masterclassTitle = infos.masterclassTitle.toUpperCase();
+  const titleWords = masterclassTitle.split(' ');
+  let currentWidth = 0;
+  let titleLineCount = 1;
 
-    for (let i = 0; i < words.length; i++) {
-      const wordWidth = ctx.measureText(words[i] + ' ').width;
+  for (let i = 0; i < titleWords.length; i++) {
+    const wordWidth = ctx.measureText(titleWords[i] + ' ').width;
+    if (currentWidth + wordWidth > maxWidth && i > 0) {
+      titleLineCount++;
+      currentWidth = wordWidth;
+    } else {
+      currentWidth += wordWidth;
+    }
+  }
+
+  // Calculate total lines for masterclass dates
+  const masterclassDate = infos.masterclassDate.toUpperCase();
+  const dateWords = masterclassDate.split(' ');
+  currentWidth = 0;
+  let dateLineCount = 1;
+
+  for (let i = 0; i < dateWords.length; i++) {
+    const wordWidth = ctx.measureText(dateWords[i] + ' ').width;
+    if (currentWidth + wordWidth > maxWidth && i > 0) {
+      dateLineCount++;
+      currentWidth = wordWidth;
+    } else {
+      currentWidth += wordWidth;
+    }
+  }
+
+  let date2LineCount = 0;
+  if (infos.masterclassDate2) {
+    const masterclassDate2 = infos.masterclassDate2.toUpperCase();
+    const date2Words = masterclassDate2.split(' ');
+    currentWidth = 0;
+    date2LineCount = 1;
+
+    for (let i = 0; i < date2Words.length; i++) {
+      const wordWidth = ctx.measureText(date2Words[i] + ' ').width;
       if (currentWidth + wordWidth > maxWidth && i > 0) {
-        lineCount++;
+        date2LineCount++;
         currentWidth = wordWidth;
       } else {
         currentWidth += wordWidth;
       }
     }
-    totalMasterclassLines += lineCount;
   }
 
-  // Position masterclass so its bottom is 60px above zone
-  const masterclassBottomY = format.zonePos[1] - 54;
-  const masterclassY = masterclassBottomY - ((totalMasterclassLines - 1) * lineHeight);
+  // Total lines: title lines + date lines + optional date2 lines
+  const totalDateLines = dateLineCount + date2LineCount;
+  const totalMasterclassLines = titleLineCount + totalDateLines;
 
-  wrapText(ctx, masterclassText, masterclassX, masterclassY, maxWidth, lineHeight);
+  // Position masterclass so its bottom is 54px above zone
+  const masterclassBottomY = format.zonePos[1] - 54;
+  
+  // Calculate Y position: bottom - (total lines * lineHeight) - 24px spacing between title and dates
+  const masterclassY = masterclassBottomY - ((totalDateLines - 1) * lineHeight) - lineHeight - 24 - ((titleLineCount - 1) * lineHeight);
+
+  // Draw title
+  wrapText(ctx, masterclassTitle, masterclassX, masterclassY, maxWidth, lineHeight);
+
+  // Draw date with 24px spacing after title
+  const dateY = masterclassY + (titleLineCount * lineHeight) + 24;
+  const dateText = infos.masterclassDate2 ? masterclassDate + '\n' + infos.masterclassDate2.toUpperCase() : masterclassDate;
+  wrapText(ctx, dateText, masterclassX, dateY, maxWidth, lineHeight);
 
   // Name position: baseline 32px above masterclass start
   ctx.font = 'bold 44px Antonio';

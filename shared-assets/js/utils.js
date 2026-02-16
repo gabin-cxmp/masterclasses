@@ -17,7 +17,7 @@ export const createElement = (tag, attributes = {}) => {
 };
   
 export const createDownloadButton = (imageURL, fileName) =>
-    createElement('a', { href: imageURL, download: fileName, textContent: 'Télécharger', className: 'download-button-small' });
+    createElement('a', { href: imageURL, download: fileName, textContent: 'Download', className: 'download-button-small' });
   
 export const createImageTitleAndDescription = (title, description) => {
     const container = createElement('div', { className: 'image-title-container' });

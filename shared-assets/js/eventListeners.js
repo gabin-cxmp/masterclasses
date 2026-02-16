@@ -119,12 +119,12 @@ dom.submitButton.addEventListener('click', async () => {
   const masterclassDate = dom.masterclassSelect?.[dom.masterclassSelect.selectedIndex]?.getAttribute('data-time');
   const masterclassDate2 = dom.masterclassSelect?.[dom.masterclassSelect.selectedIndex]?.getAttribute('data-time2');
   const checks = [
-    { condition: !croppedResult, message: 'Veuillez importer et recadrer votre photo.' },
-    { condition: !selectedSalon, message: 'Veuillez sélectionner un salon.' },
-    { condition: !selectedZone, message: 'Veuillez sélectionner une zone.' },
-    { condition: !(dom.masterclassSelect?.value), message: 'Veuillez sélectionner un talk.' },
-    { condition: !(dom.firstnameInput?.value), message: 'Veuillez saisir votre prénom.' },
-    { condition: !(dom.lastnameInput?.value), message: 'Veuillez saisir votre nom.' }
+    { condition: !croppedResult, message: 'Please crop your image.' },
+    { condition: !selectedSalon, message: 'Please select a tradeshow.' },
+    { condition: !selectedZone, message: 'Please select a zone.' },
+    { condition: !(dom.masterclassSelect?.value), message: 'Please select a talk.' },
+    { condition: !(dom.firstnameInput?.value), message: 'Please enter your first name.' },
+    { condition: !(dom.lastnameInput?.value), message: 'Please enter your last name.' }
   ];
 
   for (const check of checks) {
@@ -189,8 +189,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // Event listener for salon change
   dom.salonSelect.addEventListener('change', () => {
     const selectedSalon = dom.salonSelect.value;
-    dom.zoneSelect.innerHTML = '<option value="">Sélectionnez une zone</option>';
-    dom.masterclassSelect.innerHTML = '<option value="">Sélectionnez votre talk</option>';
+    dom.zoneSelect.innerHTML = '<option value="">Select a zone</option>';
+    dom.masterclassSelect.innerHTML = '<option value="">Select your talk</option>';
     if (selectedSalon && ZONES[selectedSalon]) {
       ZONES[selectedSalon].forEach(zone => {
         const option = document.createElement('option');
@@ -209,7 +209,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (selectedSalon && selectedZone && MASTERCLASSES[selectedSalon] && MASTERCLASSES[selectedSalon][selectedZone]) {
       injectMasterclasses(dom.masterclassSelect, MASTERCLASSES[selectedSalon][selectedZone]);
     } else {
-      dom.masterclassSelect.innerHTML = '<option value="">Sélectionnez votre talk</option>';
+      dom.masterclassSelect.innerHTML = '<option value="">Select your talk</option>';
     }
   });
 });
