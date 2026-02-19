@@ -21,11 +21,37 @@ export const ZONES = {
   "Premiere Classe": ["LE TALK", "LE WORKSHOP"],
 };
 
+export const masterclassesLeTalk = [
+  { name: "Craft 3.0: The New Luxury is Handmade", time: 'Friday March 6 | 11am'},
+  { name: "GenAI x Aesthetics: When Technology Becomes the New Muse", time: 'Saturday March 7 | 11am'},
+  { name: "Cultural Crossroads: Local Aesthetics, Global Impact", time: 'Sunday March 8 | 11am'},
+  { name: "New Faces, New Voices: The Emerging Generation", time: 'Monday 9 | 11am'},
+];
+
+export const masterclassesLeWorkshop = [
+  { name: "The Power of Color: Beyond Trends, Towards Emotion", time: 'Friday March 6 | 1pm'},
+  { name: "The Immersive Shift: Rethinking Retail as Experience", time: 'Friday March 6 | 3pm'},
+  { name: "Algorithmic Aesthetics: How Technology Backs Your Fashion Intuitions", time: 'Saturday March 7 | 1pm'},
+  { name: "Fashion x Film: The Art of the Moving Image", time: 'Saturday March 7 | 3pm'},
+  { name: "Fashion & Sound: When Style Meets Music", time: 'Sunday March 8 | 1pm'},
+  { name: "Sports Marketing, From Stadium to Screen: The Evolution of Sports Culture & Branding", time: 'Sunday March 8 | 3pm'},
+  { name: "Sustainability Reimagined: From Constraint to Creation", time: 'Monday 9 | 1pm'},
+  { name: "The Future of Fashion Weeks: Digital, Phygital & Beyond", time: 'Monday 9 | 3pm'}
+];
+
+export const MASTERCLASSES = {
+  "Premiere Classe": {
+    "LE TALK": masterclassesLeTalk,
+    "LE WORKSHOP": masterclassesLeWorkshop
+  }
+};
+
+
 export const FORMATS = [
   {
     name: 'Post',
     format: 'square',
-    template: 'shared-assets/templates/speaker-kit-square.png',
+    template: '../shared-assets/templates/speaker-kit-post.png',
     dimensions: [1080, 1080],
     profilePictureSize: [440, 440],
     profilePicturePos: [302, 702],
@@ -43,7 +69,7 @@ export const FORMATS = [
   {
     name: 'Story',
     format: 'story',
-    template: 'shared-assets/templates/speaker-kit-story.png',
+    template: '../shared-assets/templates/speaker-kit-story.png',
     dimensions: [1080, 1920],
     profilePictureSize: [440, 440],
     profilePicturePos: [291, 1094],
@@ -59,30 +85,3 @@ export const FORMATS = [
     maxMasterclassWidth: 446
   }
 ];
-
-export const masterclassesLeTalk = [
-  { name: "Craft 3.0: The New Luxury is Handmade", time: 'Friday March 6 | 11am'},
-  { name: "GenAI x Aesthetics: When Technology Becomes the New Muse", time: 'Saturday March 7 | 11am'},
-  { name: "Cultural Crossroads: Local Aesthetics, Global Impact", time: 'Sunday March 8 | 11am'},
-  { name: "New Faces, New Voices: The Emerging Generation", time: 'Monday March 9 | 11am'},
-];
-
-export const masterclassesLeWorkshop = [
-  { name: "The Power of Color: Beyond Trends, Towards Emotion", time: 'Friday March 6 | 1pm'},
-  { name: "The Immersive Shift: Rethinking Retail as Experience", time: 'Friday March 6 | 3pm'},
-  { name: "Algorithmic Aesthetics: How Technology Backs Your Fashion Intuitions", time: 'Monday March 9 | 1pm'},
-  { name: "Fashion x Film: The Art of the Moving Image", time: 'Saturday March 7 | 3pm'},
-  { name: "Fashion & Sound: When Style Meets Music", time: 'Sunday March 8 | 1pm'},
-  { name: "Sports Marketing, From Stadium to Screen: The Evolution of Sports Culture & Branding", time: 'Sunday March 8 | 3pm'},
-  { name: "Sustainability Reimagined: From Constraint to Creation", time: 'Saturday March 7 | 1pm'},
-  { name: "The Future of Fashion Weeks: Digital, Phygital & Beyond", time: 'Monday March 9 | 3pm'}
-];
-
-export const MASTERCLASSES = {
-  "Premiere Classe": {
-    "LE TALK": masterclassesLeTalk,
-    "LE WORKSHOP": masterclassesLeWorkshop
-  }
-};
-
-
