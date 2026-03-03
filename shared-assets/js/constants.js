@@ -31,12 +31,12 @@ export const masterclassesLeTalk = [
 export const masterclassesLeWorkshop = [
   { name: "The Power of Color: Beyond Trends, Towards Emotion", time: 'Friday March 6 | 1pm'},
   { name: "The Immersive Shift: Rethinking Retail as Experience", time: 'Friday March 6 | 3pm'},
-  { name: "Algorithmic Aesthetics: How Technology Backs Your Fashion Intuitions", time: 'Saturday March 7 | 1pm'},
+  { name: "Algorithmic Aesthetics: How Technology Backs Your Fashion Intuitions", time: 'Monday March 9 | 1pm'},
   { name: "Fashion x Film: The Art of the Moving Image", time: 'Saturday March 7 | 3pm'},
   { name: "Fashion & Sound: When Style Meets Music", time: 'Sunday March 8 | 1pm'},
   { name: "Sports Marketing, From Stadium to Screen: The Evolution of Sports Culture & Branding", time: 'Sunday March 8 | 11am'},
-  { name: "Sustainability Reimagined: From Constraint to Creation", time: 'Monday 9 | 1pm'},
-  { name: "The Future of Fashion Weeks: Digital, Phygital & Beyond", time: 'Monday 9 | 3pm'}
+  { name: "Sustainability Reimagined: From Constraint to Creation", time: 'Saturday March 7 | 1pm'},
+  { name: "The Future of Fashion Weeks: Digital, Phygital & Beyond", time: 'Monday March 9 | 3pm'}
 ];
 
 export const MASTERCLASSES = {
@@ -86,4 +86,5 @@ export const FORMATS = [
   }
 
 ];
+
 
