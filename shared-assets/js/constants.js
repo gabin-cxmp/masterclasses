@@ -24,7 +24,7 @@ export const ZONES = {
 export const masterclassesLeTalk = [
   { name: "Craft 3.0: The New Luxury is Handmade", time: 'Friday March 6 | 11am'},
   { name: "GenAI x Aesthetics: When Technology Becomes the New Muse", time: 'Saturday March 7 | 11am'},
-  { name: "Cultural Crossroads: Local Aesthetics, Global Impact", time: 'Sunday March 8 | 11am'},
+  { name: "Cultural Crossroads: Local Aesthetics, Global Impact", time: 'Sunday March 8 | 3pm'},
   { name: "New Faces, New Voices: The Emerging Generation", time: 'Monday 9 | 11am'},
 ];
 
@@ -34,7 +34,7 @@ export const masterclassesLeWorkshop = [
   { name: "Algorithmic Aesthetics: How Technology Backs Your Fashion Intuitions", time: 'Saturday March 7 | 1pm'},
   { name: "Fashion x Film: The Art of the Moving Image", time: 'Saturday March 7 | 3pm'},
   { name: "Fashion & Sound: When Style Meets Music", time: 'Sunday March 8 | 1pm'},
-  { name: "Sports Marketing, From Stadium to Screen: The Evolution of Sports Culture & Branding", time: 'Sunday March 8 | 3pm'},
+  { name: "Sports Marketing, From Stadium to Screen: The Evolution of Sports Culture & Branding", time: 'Sunday March 8 | 11am'},
   { name: "Sustainability Reimagined: From Constraint to Creation", time: 'Monday 9 | 1pm'},
   { name: "The Future of Fashion Weeks: Digital, Phygital & Beyond", time: 'Monday 9 | 3pm'}
 ];
@@ -86,3 +86,4 @@ export const FORMATS = [
   }
 
 ];
+
