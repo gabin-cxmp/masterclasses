@@ -1,3 +1,6 @@
+
+
+
 export const dom = {
   profilePictureUpload: document.getElementById('logoUpload'),
   firstnameInput: document.getElementById('firstname'),
@@ -52,9 +55,9 @@ export const FORMATS = [
     name: 'Post',
     format: 'square',
     template: 'shared-assets/templates/speaker-kit-post.png',
-    dimensions: [1080, 1350],
-    profilePictureSize: [440, 543],
-    profilePicturePos: [68, 587],
+    dimensions: [1080, 1080],
+    profilePictureSize: [440, 440],
+    profilePicturePos: [302, 702],
     titlePos: [82, 292],
     zonePos: [585,920],
     masterclassTitleX: 564,
@@ -86,5 +89,4 @@ export const FORMATS = [
   }
 
 ];
-
 
