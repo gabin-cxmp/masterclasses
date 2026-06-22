@@ -15,10 +15,14 @@ export const dom = {
   validateCropBtn: document.getElementById('validateCropBtn')
 };
 
-export const SALONS = ["Premiere Classe"];
+export const SALONS = ["Who's next", "Bijorhca", "Shoppe Object Paris", "Interfilière Paris"];
 
 export const ZONES = {
-  "Premiere Classe": ["LE TALK", "LE WORKSHOP"],
+  "Who's next": ["LE TALK", "LE WORKSHOP"],
+   "Bijorhca": ["LE TALK", "LE WORKSHOP"],
+   "Shoppe Object Paris": ["LE TALK", "LE WORKSHOP"],
+   "Interfilière Paris": ["LE TALK", "LE WORKSHOP"],
+  
 };
 
 export const masterclassesLeTalk = [
