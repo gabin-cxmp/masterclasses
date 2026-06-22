@@ -44,7 +44,7 @@ export const masterclassesLeWorkshop = [
 ];
 
 export const MASTERCLASSES = {
-  "Premiere Classe": {
+  "Who's next": {
     "LE TALK": masterclassesLeTalk,
     "LE WORKSHOP": masterclassesLeWorkshop
   }
