@@ -18,16 +18,14 @@ export const dom = {
 export const SALONS = ["Who's next"];
 
 export const ZONES = {
-  "Who's next": ["LE TALK", "LE WORKSHOP"],
+  "Who's next": ["WSN ACADEMY - HALL 1", "LE WORKSHOP"],
 
   
 };
 
 export const masterclassesLeTalk = [
-  { name: "Craft 3.0: The New Luxury is Handmade", time: 'Friday March 6 | 11am'},
-  { name: "GenAI x Aesthetics: When Technology Becomes the New Muse", time: 'Saturday March 7 | 11am'},
-  { name: "Cultural Crossroads: Local Aesthetics, Global Impact", time: 'Sunday March 8 | 3pm'},
-  { name: "New Faces, New Voices: The Emerging Generation", time: 'Monday 9 | 11am'},
+  { name: "TEXTILE INNOVATION", time: 'DIMANCHE 6 SEPTEMBRE I 13H - 14H'},
+
 ];
 
 export const masterclassesLeWorkshop = [
