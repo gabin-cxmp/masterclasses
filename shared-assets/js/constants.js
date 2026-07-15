@@ -81,8 +81,8 @@ export const FORMATS = [
     masterclassTitleX: 576,
     nameX: 576,
     fontTitle: 'bold 80px Poppins',
-    fontZone: '25px Theinhard',
-    fontMasterclass: '25px Theinhard',
+    fontZone: '25px Poppins',
+    fontMasterclass: '25px Poppins',
     fontName: '100 44px Poppins',
     maxTitleWidth: 650,
     maxMasterclassWidth: 521
