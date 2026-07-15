@@ -80,7 +80,7 @@ export const FORMATS = [
 
   // Largeurs maximales
   maxMasterclassWidth: 436
-}
+},
   {
     name: 'Story',
     format: 'story',
