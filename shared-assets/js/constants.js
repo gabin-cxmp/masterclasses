@@ -18,7 +18,11 @@ export const dom = {
 export const SALONS = ["Who's Next", "Bijorhca", "Interfilière Paris"];
 
 export const ZONES = {
-  "Premiere Classe": ["WSN Academy", "IMPACT and Neonyt Paris", "Interfilière Paris", "Boci"],
+  "Who's Next": ["WSN Academy"],
+  "Bijorhca": ["IMPACT and Neonyt Paris"],
+    "Interfilière Paris": ["Interfilière Paris"],
+  
+  
 };
 
 export const masterclassesWSNACADEMY = [
