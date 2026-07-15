@@ -46,10 +46,10 @@ export const masterclassesIMPACT = [
 export const MASTERCLASSES = {
   "Who's Next": {
     "WSN Academy": masterclassesWSNACADEMY
-  }
+  },
  "Bijorhca": {
     "IMPACT and Neonyt Paris": masterclassesIMPACT
-  }
+  },
   "Interfilière Paris": {
     "Interfilière Paris": masterclassesIFL
   }
