@@ -74,18 +74,18 @@ export const FORMATS = [
     format: 'story',
     template: 'shared-assets/templates/speaker-kit-story.png',
     dimensions: [1080, 1920],
-    profilePictureSize: [440, 440],
+    profilePictureSize: [440, 543],
     profilePicturePos: [291, 1094],
-    titlePos: [71, 548],
+    titlePos: [73, 521],
     zonePos: [576, 1313],
-    masterclassTitleX: 554,
-    nameX: 554,
+    masterclassTitleX: 576,
+    nameX: 576,
     fontTitle: 'bold 80px Antonio',
     fontZone: '25px Theinhard',
     fontMasterclass: '25px Theinhard',
     fontName: '100 44px Antonio',
     maxTitleWidth: 650,
-    maxMasterclassWidth: 446
+    maxMasterclassWidth: 521
   }
 
 ];
