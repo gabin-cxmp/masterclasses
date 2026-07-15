@@ -69,21 +69,21 @@ export const FORMATS = [
     maxTitleWidth: 650,
     maxMasterclassWidth: 446
   },
-  {
+   {
     name: 'Story',
     format: 'story',
     template: 'shared-assets/templates/speaker-kit-story.png',
     dimensions: [1080, 1920],
     profilePictureSize: [440, 543],
-    profilePicturePos: [291, 1094],
+    profilePicturePos: [68, 992],
     titlePos: [73, 521],
-    zonePos: [576, 1313],
+    zonePos: [945, 151],
     masterclassTitleX: 576,
     nameX: 576,
-    fontTitle: 'bold 80px Poppins',
-    fontZone: '25px Poppins',
-    fontMasterclass: '25px Poppins',
-    fontName: '100 44px Poppins',
+    fontTitle: 'bold 80px Antonio',
+    fontZone: '25px Theinhard',
+    fontMasterclass: '25px Theinhard',
+    fontName: '100 44px Antonio',
     maxTitleWidth: 650,
     maxMasterclassWidth: 521
   }
