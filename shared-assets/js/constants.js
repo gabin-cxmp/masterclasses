@@ -67,7 +67,7 @@ export const MASTERCLASSES = {
 };
 
 
-export const FORMATS = [
+
 export const MASTERCLASSES = {
   "Who's next": {
     "LE TALK": masterclassesLeTalk,
