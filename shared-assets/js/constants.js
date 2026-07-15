@@ -18,35 +18,63 @@ export const dom = {
   validateCropBtn: document.getElementById('validateCropBtn')
 };
 
-export const SALONS = ["Who's next"];
+export const SALONS = ["Who's Next", "Bijorhca", "Interfilière Paris"];
 
 export const ZONES = {
-  "Who's next": ["WSN ACADEMY - HALL 1", "LE WORKSHOP"],
-
+  "Who's Next": ["WSN Academy"],
+  "Bijorhca": ["IMPACT and Neonyt Paris"],
+    "Interfilière Paris": ["Interfilière Paris"],
+  
   
 };
 
-export const masterclassesLeTalk = [
-  { name: "TEXTILE INNOVATION", time: 'DIMANCHE 6 SEPTEMBRE I 13H - 14H'},
-
+export const masterclassesWSNACADEMY = [
+  { name: "Creative Direction as a Business Strategy", time: 'Friday March 6 | 11am'},
+  { name: "GenAI x Aesthetics: When Technology Becomes the New Muse", time: 'Saturday March 7 | 11am'},
+  { name: "Cultural Crossroads: Local Aesthetics, Global Impact", time: 'Sunday March 8 | 11am'},
+  { name: "New Faces, New Voices: The Emerging Generation", time: 'Monday 9 | 11am'},
 ];
 
-export const masterclassesLeWorkshop = [
-  { name: "The Power of Color: Beyond Trends, Towards Emotion", time: 'Friday March 6 | 1pm'},
+export const masterclassesIMPACT = [
+  { name: "Contemporary Cultural Conversations : a new era of creativity", time: 'Friday March 6 | 1pm'},
   { name: "The Immersive Shift: Rethinking Retail as Experience", time: 'Friday March 6 | 3pm'},
-  { name: "Algorithmic Aesthetics: How Technology Backs Your Fashion Intuitions", time: 'Monday March 9 | 1pm'},
+  { name: "Algorithmic Aesthetics: How Technology Backs Your Fashion Intuitions", time: 'Saturday March 7 | 1pm'},
   { name: "Fashion x Film: The Art of the Moving Image", time: 'Saturday March 7 | 3pm'},
   { name: "Fashion & Sound: When Style Meets Music", time: 'Sunday March 8 | 1pm'},
-  { name: "Sports Marketing, From Stadium to Screen: The Evolution of Sports Culture & Branding", time: 'Sunday March 8 | 11am'},
-  { name: "Sustainability Reimagined: From Constraint to Creation", time: 'Saturday March 7 | 1pm'},
-  { name: "The Future of Fashion Weeks: Digital, Phygital & Beyond", time: 'Monday March 9 | 3pm'}
+  { name: "Sports Marketing, From Stadium to Screen: The Evolution of Sports Culture & Branding", time: 'Sunday March 8 | 3pm'},
+  { name: "Sustainability Reimagined: From Constraint to Creation", time: 'Monday 9 | 1pm'},
+  { name: "The Future of Fashion Weeks: Digital, Phygital & Beyond", time: 'Monday 9 | 3pm'}
 ];
+export const masterclassesIFL = [
+  { name: "Contemporary Cultural Conversations : a new era of creativity", time: 'Friday March 6 | 1pm'},
+  { name: "The Immersive Shift: Rethinking Retail as Experience", time: 'Friday March 6 | 3pm'},
+  { name: "Algorithmic Aesthetics: How Technology Backs Your Fashion Intuitions", time: 'Saturday March 7 | 1pm'},
+  { name: "Fashion x Film: The Art of the Moving Image", time: 'Saturday March 7 | 3pm'},
+  { name: "Fashion & Sound: When Style Meets Music", time: 'Sunday March 8 | 1pm'},
+  { name: "Sports Marketing, From Stadium to Screen: The Evolution of Sports Culture & Branding", time: 'Sunday March 8 | 3pm'},
+  { name: "Sustainability Reimagined: From Constraint to Creation", time: 'Monday 9 | 1pm'},
+  { name: "The Future of Fashion Weeks: Digital, Phygital & Beyond", time: 'Monday 9 | 3pm'}
+];
+
+export const MASTERCLASSES = {
+  "Who's Next": {
+    "WSN Academy": masterclassesWSNACADEMY
+  },
+ "Bijorhca": {
+    "IMPACT and Neonyt Paris": masterclassesIMPACT
+  },
+  "Interfilière Paris": {
+    "Interfilière Paris": masterclassesIFL
+  }
+
+};
+
+
 
 export const MASTERCLASSES = {
   "Who's next": {
     "LE TALK": masterclassesLeTalk,
     "LE WORKSHOP": masterclassesLeWorkshop
-  }
 };
 
 
