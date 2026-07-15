@@ -15,21 +15,21 @@ export const dom = {
   validateCropBtn: document.getElementById('validateCropBtn')
 };
 
-export const SALONS = ["Premiere Classe"];
+export const SALONS = ["Who's Next", "Bijorhca", "Interfilière Paris"];
 
 export const ZONES = {
-  "Premiere Classe": ["LE TALK", "LE WORKSHOP"],
+  "Premiere Classe": ["WSN Academy", "IMPACT and Neonyt Paris", "Interfilière Paris", "Boci"],
 };
 
-export const masterclassesLeTalk = [
-  { name: "Craft 3.0: The New Luxury is Handmade", time: 'Friday March 6 | 11am'},
+export const masterclassesWSNACADEMY = [
+  { name: "Creative Direction as a Business Strategy", time: 'Friday March 6 | 11am'},
   { name: "GenAI x Aesthetics: When Technology Becomes the New Muse", time: 'Saturday March 7 | 11am'},
   { name: "Cultural Crossroads: Local Aesthetics, Global Impact", time: 'Sunday March 8 | 11am'},
   { name: "New Faces, New Voices: The Emerging Generation", time: 'Monday 9 | 11am'},
 ];
 
-export const masterclassesLeWorkshop = [
-  { name: "The Power of Color: Beyond Trends, Towards Emotion", time: 'Friday March 6 | 1pm'},
+export const masterclassesIMPACT = [
+  { name: "Contemporary Cultural Conversations : a new era of creativity", time: 'Friday March 6 | 1pm'},
   { name: "The Immersive Shift: Rethinking Retail as Experience", time: 'Friday March 6 | 3pm'},
   { name: "Algorithmic Aesthetics: How Technology Backs Your Fashion Intuitions", time: 'Saturday March 7 | 1pm'},
   { name: "Fashion x Film: The Art of the Moving Image", time: 'Saturday March 7 | 3pm'},
@@ -40,10 +40,16 @@ export const masterclassesLeWorkshop = [
 ];
 
 export const MASTERCLASSES = {
-  "Premiere Classe": {
-    "LE TALK": masterclassesLeTalk,
-    "LE WORKSHOP": masterclassesLeWorkshop
+  "Who's Next": {
+    "WSN Academy": masterclassesWSNACADEMY
   }
+ "Bijorhca": {
+    "IMPACT and Neonyt Paris": masterclassesIMPACT
+  }
+  "Interfilière Paris": {
+    "Interfilière Paris": masterclassesIFL
+  }
+
 };
 
 
