@@ -51,24 +51,30 @@ export const MASTERCLASSES = {
 
 
 export const FORMATS = [
-  {
-    name: 'Post',
-    format: 'square',
-    template: 'shared-assets/templates/speaker-kit-post.png',
-    dimensions: [1080, 1350],
-    profilePictureSize: [440, 543],
-    profilePicturePos: [68, 587],
-    titlePos: [82, 292],
-    zonePos: [585,920],
-    masterclassTitleX: 564,
-    nameX: 564,
-    fontTitle: 'bold 80px Poppins',
-    fontZone: '25px Poppins',
-    fontMasterclass: '25px Poppins',
-    fontName: '100 44px Poppins',
-    maxTitleWidth: 650,
-    maxMasterclassWidth: 446
-  },
+{
+  name: 'Post',
+  format: 'square',
+  template: 'shared-assets/templates/speaker-kit-post.png',
+  dimensions: [1080, 1350],
+
+  profilePictureSize: [440, 543],
+  profilePicturePos: [68, 587],
+
+  // Titre
+  titlePos: [68, 268],
+  fontTitle: '600 93px Poppins',
+  maxTitleWidth: 945,
+
+  zonePos: [585, 920],
+  masterclassTitleX: 564,
+  nameX: 564,
+
+  fontZone: '25px Poppins',
+  fontMasterclass: '25px Poppins',
+  fontName: '100 44px Poppins',
+
+  maxMasterclassWidth: 446
+},
   {
     name: 'Story',
     format: 'story',
