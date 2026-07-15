@@ -80,10 +80,10 @@ export const FORMATS = [
     zonePos: [576, 1313],
     masterclassTitleX: 576,
     nameX: 576,
-    fontTitle: 'bold 80px Antonio',
+    fontTitle: 'bold 80px Poppins',
     fontZone: '25px Theinhard',
     fontMasterclass: '25px Theinhard',
-    fontName: '100 44px Antonio',
+    fontName: '100 44px Poppins',
     maxTitleWidth: 650,
     maxMasterclassWidth: 521
   }
