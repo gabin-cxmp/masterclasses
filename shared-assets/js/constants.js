@@ -57,7 +57,7 @@ export const FORMATS = [
     template: 'shared-assets/templates/speaker-kit-post.png',
     dimensions: [1080, 1350],
     profilePictureSize: [440, 543],
-    profilePicturePos: [302, 702],
+    profilePicturePos: [68, 587],
     titlePos: [82, 292],
     zonePos: [585,920],
     masterclassTitleX: 564,
