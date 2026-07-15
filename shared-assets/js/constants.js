@@ -55,22 +55,32 @@ export const FORMATS = [
   name: 'Post',
   format: 'square',
   template: 'shared-assets/templates/speaker-kit-post.png',
+
+  // Canvas
   dimensions: [1080, 1350],
 
+  // Photo
   profilePictureSize: [440, 543],
-  profilePicturePos: [302, 1202],
-  titlePos: [82, 292],
-  zonePos: [585,920],
-  masterclassTitleX: 564,
-  nameX: 564,
-    fontTitle: 'bold 80px Poppins',
-    fontZone: '25px Poppins',
-    fontMasterclass: '25px Poppins',
-    fontName: '100 44px Poppins',
-    maxTitleWidth: 650,
-    maxMasterclassWidth: 446
-  },
-},
+  profilePicturePos: [68, 587],
+
+  // Titre principal
+  titlePos: [68, 268],
+  fontTitle: '600 93px Poppins',
+  maxTitleWidth: 945,
+
+  // Bloc informations (à droite de la photo)
+  nameX: 576,
+  zonePos: [576, 1028],
+  masterclassTitleX: 576,
+
+  // Typographies
+  fontName: '600 60px Poppins',
+  fontMasterclass: '500 28px Poppins',
+  fontZone: '400 22px Poppins',
+
+  // Largeurs maximales
+  maxMasterclassWidth: 436
+}
   {
     name: 'Story',
     format: 'story',
