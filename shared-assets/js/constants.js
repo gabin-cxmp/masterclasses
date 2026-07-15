@@ -97,24 +97,36 @@ export const FORMATS = [
 
   // Largeurs maximales
   maxMasterclassWidth: 436
-}
+},
   {
-    name: 'Story',
-    format: 'story',
-    template: 'shared-assets/templates/speaker-kit-story.png',
-    dimensions: [1080, 1920],
-    profilePictureSize: [440, 440],
-    profilePicturePos: [291, 1094],
-    titlePos: [71, 548],
-    zonePos: [576, 1313],
-    masterclassTitleX: 554,
-    nameX: 554,
-    fontTitle: 'bold 80px Poppins',
-    fontZone: '25px Poppins',
-    fontMasterclass: '25px Poppins',
-    fontName: '100 44px Poppins',
-    maxTitleWidth: 650,
-    maxMasterclassWidth: 446
-  }
+  name: 'Story',
+  format: 'story',
+  template: 'shared-assets/templates/speaker-kit-story.png',
+
+  // Canvas
+  dimensions: [1080, 1920],
+
+  // Photo
+  profilePictureSize: [440, 543],
+  profilePicturePos: [58, 850],
+
+  // Titre
+  titlePos: [63, 445],
+  fontTitle: '600 93px Poppins',
+  maxTitleWidth: 950,
+
+  // Bloc d'informations
+  nameX: 505,
+  zonePos: [505, 1350],
+  masterclassTitleX: 505,
+
+  // Typographies
+  fontName: '600 60px Poppins',
+  fontMasterclass: '500 28px Poppins',
+  fontZone: '400 22px Poppins',
+
+  // Largeur maximale
+  maxMasterclassWidth: 470
+}
 
 ];
